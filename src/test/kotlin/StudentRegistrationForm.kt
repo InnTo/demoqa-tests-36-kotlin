@@ -28,10 +28,13 @@ class StudentRegistrationForm {
         Selenide.`$`(Selectors.byText("Male")).click()
         Selenide.`$`("#userNumber").setValue("8961530834")
 
-        // $("#dateOfBirthInput").setValue("Another test address"); //Дата и так есть и можно не вводить
+        Selenide.`$`("#dateOfBirthInput").clear()
+        Selenide.`$`(".react-datepicker__month-select").selectOption("April")
+        Selenide.`$`(".react-datepicker__year-select").selectOption("2002")
+        Selenide.`$$`(".react-datepicker__day").findBy(Condition.text("30")).click()
+
         Selenide.`$`("#subjectsInput").setValue("Maths")
-        Selenide.`$$`(".subjects-auto-complete__option").findBy(Condition.text("Maths"))
-            .click() //. указывает, что это класс, а не тег, можно явно прописывать класс
+        Selenide.`$$`(".subjects-auto-complete__option").findBy(Condition.text("Maths")).click() //. указывает, что это класс, а не тег, можно явно прописывать класс
 
 
         Selenide.`$`(Selectors.byText("Sports")).click()
@@ -50,7 +53,7 @@ class StudentRegistrationForm {
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("Test@test.ru"))
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("Male"))
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("8961530834"))
-        Selenide.`$`(".table-responsive").shouldHave(Condition.text("15 June,2025"))
+        Selenide.`$`(".table-responsive").shouldHave(Condition.text("30 April,2002"))
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("Maths"))
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("Sports"))
         Selenide.`$`(".table-responsive").shouldHave(Condition.text("test.jpg"))
