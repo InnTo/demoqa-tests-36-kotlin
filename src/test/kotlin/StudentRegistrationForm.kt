@@ -21,6 +21,10 @@ class StudentRegistrationForm {
     fun fillRegistrationFormTest() {
         open("/automation-practice-form")
 
+        executeJavaScript<Unit>("$('footer').remove();");
+        executeJavaScript<Unit>("$('#fixedban').remove();");
+
+
         //Заполнение формы
         element("#firstName").setValue("Test")
         element("#lastName").setValue("TestLastName")
