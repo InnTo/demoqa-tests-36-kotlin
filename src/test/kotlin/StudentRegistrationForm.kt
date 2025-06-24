@@ -10,7 +10,7 @@ class StudentRegistrationForm {
     companion object {
         @BeforeAll
         @JvmStatic // Важно добавить эту аннотацию
-        fun beforeAll() {
+        fun setUp () {
             Configuration.browserSize = "1920x1080"
             Configuration.pageLoadStrategy = "eager"
             Configuration.baseUrl = "https://demoqa.com"
